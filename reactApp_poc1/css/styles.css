@@ -1,0 +1,99 @@
+body {
+ font-family: arial;
+ background: #f5f5f5;
+ font-size: 12px;
+}
+
+.board {
+ width: 300px;
+ background: rgba( 165, 187, 216, 0.716);
+}
+
+button {
+ font-size: 14px;
+ padding: 5px;
+ margin: 8px;
+ min-width: 100px;
+ color: #fff;
+}
+
+button.green {
+ background: green;
+ border: 1px solid green;
+}
+
+button.red {
+ background: red;
+ border: 1px solid red;
+}
+
+button.blue {
+ background: blue;
+ border: 1px solid blue;
+}
+
+div.board {
+ margin: 5px;
+}
+
+.commentContent {
+ margin: 0 auto;
+ background: #e5e5e5;
+}
+
+#app textarea {
+ min-width: 200px;
+ padding: 5px;
+ margin: 5px;
+ font-family: arial;
+ display: block;
+}
+
+#app {
+ width: auto;
+ max-width: 1366px;
+ background: ivory;
+ margin: 10px auto;
+ padding-top: 10px;
+}
+
+.header {
+  background: #293988 none repeat scroll 0 0;
+  color: #fff;
+  margin: 5px auto;
+  padding: 10px;
+  width: auto;
+ 
+}
+.header a{
+ display:inline-block;
+ width:80px;
+ outline: none;
+ font-size:18px;
+ padding:5px;
+ text-align: center;
+ margin:5px;
+ text-decoration: none;
+ color: #d8c3bf;
+}
+
+.header a:hover{
+ background:#c84012;
+}
+
+
+.content-wrapper{
+ margin:10px;
+ font-size:15px;
+ 
+}
+
+
+.footer {
+ background: #333;
+ color: #fff;
+ padding: 10px;
+ width: auto;
+ margin: auto;
+ font-size:12px;
+}

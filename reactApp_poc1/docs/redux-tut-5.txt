@@ -1,0 +1,52 @@
+import { applyMiddleWare, createStore } from 'redux';
+import axios from 'axios';
+import logger from 'redux-logger';
+imort thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
+
+const initialState ={
+ fetchin:false,
+ fetched:false,
+ users:[],
+ error:null,
+}
+
+const reducer = (state=initialState, action)=>{
+
+	switch(action.type){
+	  case "FETCH_USERS_START": {
+		return{...state, fetching:true}
+		break;
+	  }
+	  
+	  case "FETCH_USERS_ERROR":{
+		return {...state, fetching:false, error: action.paylod}
+		break;
+	  }
+
+	  case "RECEIVE_USERS":{
+		return{...state, fetching:false, fetched:true, users:action.payload}
+		break;
+	  }
+	}
+
+	return state
+
+}
+
+const middleware = applyMiddleware(thunk, logger())
+const store = createStore(reducer, middleware)
+
+store.dispatch((dispatch)=>{
+	dispatch({type: "FETCH_USERS_START"})
+	axios.get("http://rest.learncode.academy/api/wstrn/users")
+	.then((response) => {
+		dispatch({type: "RECEIVE_USERS", payload:response.data})
+	})
+	.catch((err) => {
+		dispatch({type:"FETCH_USERS_ERROR", payload:err})
+	})
+})
+
+
+///https://www.youtube.com/watch?v=Td-2D-_7Y2E
